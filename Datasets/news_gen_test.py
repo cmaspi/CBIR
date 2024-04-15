@@ -14,16 +14,12 @@ transform = A.Compose([
 ])
 
 
-if not os.path.exists('./News/Test/'):
-    os.makedirs('./News/Test/')
-
 train_dir = './News/Train/'
-test_dir = './News/Test/'
-for image_path in tqdm(os.listdir(train_dir)):
-    image = Image.open(train_dir + image_path)
-    image = ImageOps.grayscale(image)
-    image = np.array(image)
-    transformed_image = transform(image)
-    image = Image.fromarray(transformed_image)
-    image.save(test_dir+image_path)
 
+def gen_test_data():
+    for image_path in tqdm(os.listdir(train_dir)):
+        image = Image.open(train_dir + image_path)
+        image = ImageOps.grayscale(image)
+        image = np.array(image)
+        transformed_image = transform(image)
+        yield transformed_image
