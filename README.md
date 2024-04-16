@@ -18,6 +18,7 @@ Download the datasets using
 kaggle datasets download -d skylord/oxbuildings
 ```
 
+### Paris
 Organise Paris inside Datasets directory as follows
 
 ```
@@ -60,5 +61,18 @@ rm triomphe/paris_triomphe_000662.jpg
 rm triomphe/paris_triomphe_000833.jpg
 rm triomphe/paris_triomphe_000863.jpg
 rm triomphe/paris_triomphe_000867.jpg
+```
+
+### Oxford
+use this script to put the images into directories
+
+```python
+import os
+
+
+for file_name in os.listdir('./'):
+    label = file_name[:-11]
+    os.makedirs(f'./{label}/', exist_ok=True)
+    os.system(f'mv {file_name} {label}/')
 ```
 
