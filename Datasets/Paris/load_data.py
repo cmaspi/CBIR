@@ -10,8 +10,6 @@ def data_loader():
     images = []
     image_labels = []
     for child_dir in tqdm(os.listdir(parent_dir)):
-        # if child_dir == 'general':
-            # continue
         for image_name in tqdm(os.listdir(parent_dir+child_dir), leave=False):
             image = Image.open(f'{parent_dir}{child_dir}/{image_name}')
             image = ImageOps.grayscale(image)
