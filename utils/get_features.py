@@ -12,12 +12,14 @@ class SIFT:
             self.descriptor_obj = cv2.ORB_create()
             self.no_detect_return = np.zeros((1, 32))
                     
-    def __get_features__(self, image):
+    def __get_features__(self, image, ret_keypoints=False):
         kp, desc = self.descriptor_obj.detectAndCompute(image, None)
-        if desc is not None:
-            return desc
+        if desc is None:
+            desc = self.no_detect_return
+        if ret_keypoints:
+            return kp, desc
         else:
-            return self.no_detect_return
+            return desc
     
     def get_features(self, images: List):
         features = []
