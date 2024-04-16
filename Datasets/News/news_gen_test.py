@@ -7,10 +7,10 @@ from tqdm import tqdm
 
 
 transform = A.Compose([
-    # A.HorizontalFlip(p=0.5),
-    # A.RandomBrightnessContrast(p=0.2),
-    # A.Rotate(limit=20),
-    # A.GaussNoise(p=0.1),
+    A.HorizontalFlip(p=0.5),
+    A.RandomBrightnessContrast(p=0.2),
+    A.Rotate(limit=20),
+    A.GaussNoise(p=0.1),
 ])
 
 
