@@ -21,9 +21,19 @@ class SIFT:
         else:
             return desc
     
-    def get_features(self, images: List):
+    def get_features(self, images: List, return_keypoints):
         features = []
+        if return_keypoints:
+            keypoints = []
         for img in tqdm(images):
-            features.append(self.__get_features__(img))
+            ret = self.__get_features__(img, return_keypoints)
+            if return_keypoints:
+                kp, d = ret
+                keypoints.append(kp)
+            else:
+                d = ret
+            features.append(d)
+        if return_keypoints:
+            return keypoints, features
         return features
 
