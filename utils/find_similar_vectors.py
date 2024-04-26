@@ -2,7 +2,11 @@ import faiss
 
 
 class KNN:
-
+    """
+    Uses faiss library for nearest neighbour search
+    There are two modes L2 and cosine. Cosine can be used for
+    matching histograms
+    """
     def __init__(self, vec_size: int, mode='cosine', search='exact'):
         if search == 'exact':
             if mode == 'cosine':

@@ -4,6 +4,9 @@ from tqdm import tqdm
 import numpy as np
 
 class SIFT:
+    """
+    SIFT/ORB to get descriptors, keypoints for each image
+    """
     def __init__(self, mode='sift'):
         if mode == 'sift':
             self.descriptor_obj = cv2.SIFT_create()

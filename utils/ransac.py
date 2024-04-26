@@ -1,3 +1,8 @@
+"""
+Implements the RANSAC algorithm using Lowe's ratio, it uses USAC_MAGSAC
+instead of RANSAC.
+"""
+
 import cv2
 import numpy as np
 from typing import List
